@@ -1,0 +1,56 @@
+DIACONU ARINA-IOANA         322 CB
+
+              README - TEMA 2
+
+    Punctaj checker - 100p
+
+    Implementare:
+        - ROTP - se parcurge sirul de caractere plaintext litera cu
+litera, iar cheia key se parcurge tot litera cu litera, insa de la
+sfarsit catre inceputul cuvantului. Pentru fiecare litera din
+plaintext, se face xor cu litera corespunzatoare din key, intocmai
+ca in enuntul temei (plaintext[i] ^ key[len - i - 1]), iar 
+rezultatul se salveaza in ciphertext la indicele literei din
+plaintext.
+
+        - AGES - se parcurge vectorul dates de la sfarsit catre
+inceput, pentru a folosi direct valoarea primita pentru lungimea 
+vectorului. Pentru fiecare data din acest vector, se compara anul
+curent cu anul de la acea data. Daca anul curent este mai mic decat
+cel din data, atunci acea data de nastere este invalida si se va
+returna 0, iar in caz contrar, se compara luna curenta cu luna din
+acea data. Daca luna de la data curenta este mai mica decat cea din
+vector, se verifica daca varsta la acest moment este diferita de 0
+si daca este, se retine varsta din care se scade un an. Daca luna
+curenta este egala cu cea din data, se compara zilele. Daca ziua
+curenta este mai mica decat cea din data, se verifica ca in cazul
+anterior ca data sa fie valida si se scade un an din varsta 
+calculata, iar in caz contrar, varsta calculata este implinita si
+se retine direct in vectorul de varste la indicele cu care a fost
+parcurs si vectorul dates, deci varstele se vor retine in ordine
+inversa, de la ultima la prima.
+
+        - COLUMNAR - pentru fiecare valoare din vectorul de ordine
+key, se acceseaza initial din haystack litera de pe pozitia 
+corespunzatoare acelei valori si se scrie in ciphertext. Pana se
+termina haystack, la acea valoare se adauga lungimea cheii, se
+acceseaza noua litera din haystack si se scrie in sirul de caractere
+rezultat, ciphertext. Deci se parcurg literele din haystack incepand
+cu valoarea curenta din vectorul de ordine din len_cheie in
+len_cheie caractere. Se reia procesul pana cand au fost parcurse 
+toate valorile din vectorul de ordine.
+
+        - CACHE - se calculeaza tag-ul de la care trebuie obtinut 
+octetul din cache prin shiftarea adresei cu 3 biti la dreapta. Se
+calculeaza offset-ul aceleiasi adrese prin shiftarea la stanga cu
+29 de biti, iar apoi la dreapta cu acelasi numar de biti pentru ca
+in final sa ramana doar cei 3 biti doriti. Se cauta, apoi, tag-ul
+calculat anterior in vectorul de tag-uri. In cazul in care este
+gasit, se calculeaza adresa din cache de la care trebuie luat
+octetul si se scrie in registru valoarea de la acea adresa din 
+cache. In cazul in care nu este gasit tag-ul in vectorul de tag-uri,
+se scriu in matrice la linia to_replace, cele 8 valori obtinute
+din tag, precum in enuntul temei. Dupa aceea, se acceseaza octetul
+dorit cache[to_replace][offset] din matricea cache si se scrie in
+registru. In final, se retine tag-ul in vectorul de tag-uri la
+pozitia to_replace.

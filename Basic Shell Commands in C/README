@@ -1,0 +1,32 @@
+DIACONU ARINA-IOANA  -  grupa 322CB
+
+                README
+
+    Punctaj obtinut pe checker-ul local - 120p
+
+    Implementare:
+
+        - programul principal main citeste de la tastatura cate o linie, pe care o imparte in functie de primul cuvant (comanda) in cate cuvinte sunt asteptate pentru acea comanda si apeleaza fiecare functie in parte, corespunzatoare fiecarei comenzi; 
+        - functiile predefinite in schelet apeleaza la randul lor functii ce returneaza cuvintele citite, aloca memorie pentru un director, respectiv un fisier, care sterg aceste structuri sau o intreaga ierarhie de directoare si fisiere.
+
+    -> touch - verifica daca fisierul adaugat este primul din ierarhie si il adauga in caz afirmativ, iar daca nu, parcurge lista de fisiere pentru a vedea daca exista un alt fisier cu acel nume. In caz contrar, adauga fisierul la sfarsitul listei.
+    
+    -> mkdir - verifica daca directorul adaugat este primul din ierarhie si il adauga in caz afirmativ, iar daca nu, parcurge lista de directoare pentru a vedea daca exista un alt director cu acel nume. In caz contrar, adauga directorul la sfarsitul listei.
+
+    -> ls - parcurge pe rand lista de directoare, respectiv de fisiere si afiseaza numele fiecarui director/fisier pe cate o linie.
+
+    -> rm - parcurge lista de fisiere pentru a gasi fisierul ce trebuie sters. Verifica daca acesta este inceput de lista sau nu si sterge acel element, eliberand toata memoria alocata pentru acesta.
+
+    -> rmdir - parcurge lista de directoare pentru a gasi directorul ce trebuie sters. Verifica daca acesta este inceput de lista sau nu si sterge acel element, eliberand toata memoria alocata atat pentru acesta, cat si pentru toate fisierele si directoarele care se gasesc in acesta.
+
+    -> cd - verifica daca trebuie sa mearga inapoi in ierarhia de directoare, iar daca nu, cauta directorul in care trebuie sa intre si schimba directorul curent, iar in caz contrar afiseaza mesajul de eroare.
+
+    -> tree - parcurge lista de directoare din directorul parinte dat si apeleaza recursiv functia pentru fiecare director din interior.
+
+    -> pwd - construieste calea, mergand inapoi in ierarhia de directoare pana la directorul parinte.
+
+    -> stop - pentru a putea opri programul, sterge toata ierarhia de directoare si fisiere creata.
+
+    -> mv - cauta numele vechi in lista de directoare si apoi in cea de fisiere. Daca exista, cauta numele nou in aceleasi 2 liste, iar daca nu este gasit, verifica daca trebuie mutat un fisier sau un director. Se construieste un director/fisier nou, se refac legaturile cu directorul parinte si cu ierarhia din interior si se elibereaza memoria pentru fisierul/directorul sters.
+
+
